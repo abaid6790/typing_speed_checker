@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Tester</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>⌨ Typing Speed Tester</h1>
+
+        <div class="controls">
+
+            <select id="difficulty">
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+            </select>
+
+            <button id="themeBtn">Theme</button>
+
+        </div>
+
+        <div class="timer">
+            Time Left:
+            <span id="time">60</span>s
+        </div>
+
+        <div class="progress-container">
+            <div id="progressBar"></div>
+        </div>
+
+        <div id="paragraph" class="paragraph">
+            Loading paragraph...
+        </div>
+
+        <textarea
+            id="typingInput"
+            placeholder="Start typing here..."
+        ></textarea>
+
+        <div class="stats">
+
+            <div>
+                <h3 id="wpm">0</h3>
+                <p>WPM</p>
+            </div>
+
+            <div>
+                <h3 id="accuracy">100%</h3>
+                <p>Accuracy</p>
+            </div>
+
+            <div>
+                <h3 id="mistakes">0</h3>
+                <p>Mistakes</p>
+            </div>
+
+            <div>
+                <h3 id="bestWpm">0</h3>
+                <p>Best WPM</p>
+            </div>
+
+        </div>
+
+        <h2 id="achievement">
+            Achievement: None
+        </h2>
+
+        <div class="buttons">
+
+            <button id="restartBtn">Restart</button>
+
+            <button id="newBtn">New Paragraph</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

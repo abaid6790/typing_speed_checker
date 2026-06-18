@@ -1,0 +1,168 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    transition:.3s;
+}
+
+.container{
+    width:100%;
+    max-width:1000px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#2563eb;
+}
+
+.controls{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+select,
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+select{
+    border:1px solid #ddd;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.timer{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.progress-container{
+    width:100%;
+    height:12px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+#progressBar{
+    width:0%;
+    height:100%;
+    background:#2563eb;
+    transition:.2s;
+}
+
+.paragraph{
+    background:#f8fafc;
+    padding:20px;
+    border-radius:12px;
+    line-height:1.8;
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+textarea{
+    width:100%;
+    height:180px;
+    resize:none;
+    padding:15px;
+    border-radius:12px;
+    border:2px solid #ddd;
+    font-size:17px;
+    margin-bottom:20px;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:#2563eb;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.stats div{
+    background:#f8fafc;
+    padding:15px;
+    text-align:center;
+    border-radius:12px;
+}
+
+.stats h3{
+    color:#2563eb;
+    font-size:24px;
+}
+
+#achievement{
+    text-align:center;
+    margin-bottom:20px;
+    color:#16a34a;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.dark{
+    background:#111827;
+}
+
+.dark .card{
+    background:#1f2937;
+}
+
+.dark .paragraph,
+.dark .stats div,
+.dark textarea{
+    background:#374151;
+    color:white;
+}
+
+.dark h1,
+.dark h2,
+.dark p,
+.dark .timer{
+    color:white;
+}
+
+.dark textarea{
+    border-color:#4b5563;
+}
