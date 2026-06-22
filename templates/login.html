@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <!-- Google Fonts -->
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="auth-container">
+        <div class="form-toggle">
+            <button id="toggle-login" class="active" onclick="switchTab('login')">Login</button>
+            <button id="toggle-signup" onclick="switchTab('signup')">Sign Up</button>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form" class="auth-form">
+            <h2>Welcome Back</h2>
+            <div class="input-group">
+                <input type="email" id="login-email" name="email" required>
+                <label for="login-email">Email Address</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="login-password" name="password" required>
+                <label for="login-password">Password</label>
+            </div>
+            
+            <div class="options">
+                <label class="checkbox-container">
+                    <input type="checkbox" name="remember"> Remember Me
+                    <span class="checkmark"></span>
+                </label>
+                <a href="#" onclick="showForgotPassword()" class="link">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                <span>Login</span>
+                <div class="loading"></div>
+            </button>
+            
+            <p class="divider"><span>OR</span></p>
+            
+            
+            <p class="switch-text">
+                Don't have an account? <a href="#" onclick="switchTab('signup')">Sign Up</a>
+            </p>
+        </form>
+
+        <!-- SIGNUP FORM -->
+        <form id="signup-form" action="/signup" method="" class="auth-form hidden">
+            <h2>Create Account</h2>
+            <div class="input-group">
+                <input type="text" id="signup-name" name="name" required>
+                <label for="signup-name">Full Name</label>
+            </div>
+            <div class="input-group">
+                <input type="email" id="signup-email" name="email" required>
+                <label for="signup-email">Email Address</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="signup-password" name="password" required>
+                <label for="signup-password">Password</label>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                <span>Sign Up</span>
+                <div class="loading"></div>
+            </button>
+            
+            <p class="switch-text">
+                Already have an account? <a href="#" onclick="switchTab('login')">Login</a>
+            </p>
+        </form>
+
+        <!-- FORGOT PASSWORD FORM -->
+        <form id="forgot-form" action="/forgot-password" method="POST" class="auth-form hidden">
+            <h2>Reset Password</h2>
+            <p>Enter your email address and we will send you a link to reset your password.</p>
+            <div class="input-group">
+                <input type="email" id="forgot-email" name="email" required>
+                <label for="forgot-email">Email Address</label>
+            </div>
+            
+            <button type="submit" class="btn-primary">
+                <span>Send Reset Link</span>
+                <div class="loading"></div>
+            </button>
+            
+            <p class="switch-text">
+                <a href="#" onclick="switchTab('login')">Back to Login</a>
+            </p>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

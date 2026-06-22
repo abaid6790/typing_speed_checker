@@ -1,1 +1,5 @@
 pygame
+Flask
+python-dotenv
+supabase
+gunicorn
