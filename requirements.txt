@@ -1,5 +1,6 @@
-pygame
 Flask
 python-dotenv
 supabase
 gunicorn
+pygame
+requests

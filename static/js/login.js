@@ -6,9 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // ----------------------------
     // SUPABASE INIT (SAFE)
     // ----------------------------
-    const supabaseUrl = "YOUR_SUPABASE_URL";
-    const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
-
+    const supabaseUrl = "https://pzojnknrfebmyhmhtmyi.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6b2pua25yZmVibXlobWh0bXlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyMjg5NzQsImV4cCI6MjA5NzgwNDk3NH0.ZrmN-uK13DpGrzxNs4jZYczQSlrlgSsSTcE7pVUV1Z8";
     const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 
@@ -77,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         alert("Login successful!");
-        window.location.href = "/dashboard";
+        window.location.href = "/";;
     });
 
 
@@ -96,12 +95,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (error) {
-            alert(error.message);
-            return;
-        }
+    alert("Signup Error: " + error.message);
+    return;
+}
 
-        alert("Password reset email sent!");
-        switchTab("login");
+const user = data.user;
+
+await fetch("/create-profile", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        id: user.id,
+        email: user.email,
+        full_name: name
+    })
+});
+
+alert("Signup successful! Check your email for verification.");
+switchTab("login");
     });
 
 });

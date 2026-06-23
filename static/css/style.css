@@ -1,168 +1,391 @@
+/* ==================================
+   SIMPLE & BEAUTIFUL TYPING TESTER
+   One Page Responsive Design
+================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background:#f4f7fc;
+    font-family:'Poppins',sans-serif;
+
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
-    transition:.3s;
+
+    padding:15px;
+
+    background:linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
 }
+
+/* Main Container */
 
 .container{
     width:100%;
-    max-width:1000px;
+    max-width:900px;
 }
+
+/* Card */
 
 .card{
+
     background:white;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.15);
+
+    animation:fadeUp .6s ease;
 }
 
-h1{
-    text-align:center;
-    margin-bottom:20px;
-    color:#2563eb;
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
+
+/* Title */
+
+.card h1{
+
+    text-align:center;
+
+    color:#333;
+
+    font-size:30px;
+
+    margin-bottom:18px;
+}
+
+/* Controls */
 
 .controls{
+
     display:flex;
+
     justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
+
+    gap:12px;
+
+    margin-bottom:15px;
 }
 
-select,
-button{
-    padding:10px 18px;
+.controls select,
+.controls button{
+
     border:none;
-    border-radius:10px;
+
+    outline:none;
+
+    padding:10px 15px;
+
+    border-radius:12px;
+
+    font-size:14px;
+
     cursor:pointer;
-    font-size:15px;
 }
 
-select{
-    border:1px solid #ddd;
+.controls select{
+
+    background:#f1f5f9;
 }
 
-button{
-    background:#2563eb;
+.controls button{
+
+    background:#667eea;
+
     color:white;
+
+    font-weight:600;
+
+    transition:.3s;
 }
 
-button:hover{
-    opacity:.9;
+.controls button:hover{
+
+    background:#5563d8;
 }
+
+/* Timer */
 
 .timer{
+
     text-align:center;
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
 
-.progress-container{
-    width:100%;
-    height:12px;
-    background:#ddd;
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:20px;
-}
-
-#progressBar{
-    width:0%;
-    height:100%;
-    background:#2563eb;
-    transition:.2s;
-}
-
-.paragraph{
-    background:#f8fafc;
-    padding:20px;
-    border-radius:12px;
-    line-height:1.8;
-    margin-bottom:20px;
     font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+    color:#444;
 }
 
-textarea{
-    width:100%;
-    height:180px;
-    resize:none;
-    padding:15px;
-    border-radius:12px;
-    border:2px solid #ddd;
-    font-size:17px;
-    margin-bottom:20px;
-}
+#time{
 
-textarea:focus{
-    outline:none;
-    border-color:#2563eb;
-}
+    color:#667eea;
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.stats div{
-    background:#f8fafc;
-    padding:15px;
-    text-align:center;
-    border-radius:12px;
-}
-
-.stats h3{
-    color:#2563eb;
     font-size:24px;
 }
 
-#achievement{
-    text-align:center;
-    margin-bottom:20px;
-    color:#16a34a;
+/* Progress Bar */
+
+.progress-container{
+
+    width:100%;
+
+    height:10px;
+
+    background:#e5e7eb;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:15px;
 }
+
+#progressBar{
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #667eea,
+        #764ba2
+    );
+
+    border-radius:20px;
+
+    transition:.4s;
+}
+
+/* Paragraph */
+
+.paragraph{
+
+    background:#f8fafc;
+
+    border:2px solid #e2e8f0;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    min-height:110px;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    color:#374151;
+
+    overflow-y:auto;
+
+    margin-bottom:15px;
+}
+
+/* Text Area */
+
+textarea{
+
+    width:100%;
+
+    height:110px;
+
+    border:2px solid #e2e8f0;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    resize:none;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+textarea:focus{
+
+    border-color:#667eea;
+}
+
+/* Stats */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:12px;
+
+    margin-top:15px;
+}
+
+.stats div{
+
+    background:#f8fafc;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    padding:12px;
+
+    transition:.3s;
+}
+
+.stats div:hover{
+
+    transform:translateY(-3px);
+}
+
+.stats h3{
+
+    color:#667eea;
+
+    font-size:24px;
+}
+
+.stats p{
+
+    color:#666;
+
+    font-size:13px;
+}
+
+/* Achievement */
+
+#achievement{
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:#f59e0b;
+
+    font-size:20px;
+}
+
+/* Buttons */
 
 .buttons{
+
     display:flex;
-    gap:15px;
+
     justify-content:center;
+
+    gap:12px;
+
+    margin-top:18px;
 }
 
-.dark{
-    background:#111827;
-}
+.buttons button{
 
-.dark .card{
-    background:#1f2937;
-}
+    border:none;
 
-.dark .paragraph,
-.dark .stats div,
-.dark textarea{
-    background:#374151;
+    padding:12px 22px;
+
+    border-radius:12px;
+
     color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
 }
 
-.dark h1,
-.dark h2,
-.dark p,
-.dark .timer{
-    color:white;
+#restartBtn{
+
+    background:#ef4444;
 }
 
-.dark textarea{
-    border-color:#4b5563;
+#newBtn{
+
+    background:#10b981;
+}
+
+.buttons button:hover{
+
+    transform:translateY(-2px);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .stats{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .controls{
+
+        flex-direction:column;
+    }
+
+    .buttons{
+
+        flex-direction:column;
+    }
+
+    .card{
+
+        padding:20px;
+    }
+}
+
+@media(max-width:480px){
+
+    .stats{
+
+        grid-template-columns:1fr;
+    }
+
+    .card h1{
+
+        font-size:24px;
+    }
+
+    textarea{
+
+        height:90px;
+    }
+
+    .paragraph{
+
+        min-height:90px;
+    }
 }

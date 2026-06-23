@@ -1,24 +1,18 @@
-env
+# Environment
+
+.env
+
 # Python
 
 **pycache**/
-*.py[cod]
-*$py.class
+*.pyc
+*.pyo
+*.pyd
 
 # Virtual Environment
 
 venv/
 env/
-ENV/
-
-# Environment Variables
-
-.env
-
-# Flask
-
-instance/
-.webassets-cache
 
 # VS Code
 
@@ -28,36 +22,33 @@ instance/
 
 .idea/
 
+# Logs
+
+*.log
+
 # OS Files
 
 .DS_Store
 Thumbs.db
 
-# Logs
+# Flask
 
-*.log
+instance/
 
-# SQLite
-
-*.db
-*.sqlite3
-
-# Build Files
-
-build/
-dist/
-*.egg-info/
-
-# Cache
+# Testing
 
 .pytest_cache/
-.mypy_cache/
 
-# Jupyter
+# Build
 
-.ipynb_checkpoints/
+dist/
+build/
 
-# Temporary Files
+# Supabase
 
-*.tmp
-*.temp
+.supabase/
+
+# Sounds Cache
+
+*.wav
+*.mp3

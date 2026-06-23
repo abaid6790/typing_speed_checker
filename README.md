@@ -1,29 +1,22 @@
-# Typing Speed Tester
+# 🚀 Typing Speed Tester
 
-A modern web-based Typing Speed Tester built using Flask, HTML, CSS, JavaScript, and Supabase. The application helps users improve their typing speed while tracking performance through real-time statistics and achievements.
+A modern web-based Typing Speed Tester built with Flask, JavaScript, and Supabase authentication.
 
 ## Features
 
-* Real-time WPM Calculation
+* User Authentication (Login & Signup)
+* Typing Speed Calculation (WPM)
 * Accuracy Tracking
 * Mistake Counter
-* Progress Bar
-* Multiple Difficulty Levels
-
-  * Easy
-  * Medium
-  * Hard
-* Dark / Light Theme
+* Difficulty Levels (Easy, Medium, Hard)
 * Achievement System
-* Anti-Paste Protection
-* Auto-Finish on Paragraph Completion
-* Responsive User Interface
+* Dark/Light Theme
 * Random Paragraph Generation
-* User Authentication with Supabase
 * Session Management
-* Future Support for Leaderboards and User Profiles
+* Responsive UI
+* Sound Effects
 
-## Technologies Used
+## Tech Stack
 
 ### Frontend
 
@@ -33,8 +26,8 @@ A modern web-based Typing Speed Tester built using Flask, HTML, CSS, JavaScript,
 
 ### Backend
 
-* Python
 * Flask
+* Python
 
 ### Database & Authentication
 
@@ -49,14 +42,18 @@ Typing-Speed-Tester/
 ├── db.py
 ├── .env
 ├── requirements.txt
-├── .gitignore
+├── README.md
 │
 ├── data/
 │   └── paragraphs.py
 │
+├── utils/
+│   ├── achievements.py
+│   └── themes.py
+│
 ├── templates/
-│   ├── index.html
-│   └── login.html
+│   ├── login.html
+│   └── index.html
 │
 ├── static/
 │   ├── css/
@@ -73,70 +70,24 @@ Typing-Speed-Tester/
 
 ## Installation
 
-### Clone Repository
-
 ```bash
-git clone https://github.com/yourusername/typing-speed-tester.git
-cd typing-speed-tester
-```
+git clone <repository-url>
+cd Typing-Speed-Tester
 
-### Create Virtual Environment
-
-```bash
-python -m venv venv
-```
-
-### Activate Virtual Environment
-
-Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Linux / macOS
-
-```bash
-source venv/bin/activate
-```
-
-### Install Dependencies
-
-```bash
 pip install -r requirements.txt
-```
 
-### Configure Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-SUPABASE_URL=YOUR_SUPABASE_URL
-SUPABASE_KEY=YOUR_SUPABASE_KEY
-SECRET_KEY=YOUR_SECRET_KEY
-```
-
-### Run Application
-
-```bash
 python app.py
-```
-
-Open:
-
-```text
-http://127.0.0.1:5000
 ```
 
 ## Future Enhancements
 
-* User Profiles
 * Global Leaderboard
-* Typing History
-* Performance Analytics
-* Achievement Badges
-* Export Results
-* Charts and Statistics Dashboard
+* User Profiles
+* Statistics Dashboard
+* XP & Level System
+* AI Typing Coach
+* Streak Tracking
+* Multiplayer Typing Battles
 
 ## Author
 
