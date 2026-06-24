@@ -92,3 +92,4 @@ python app.py
 ## Author
 
 Abaid-ur-Rehman
+Machine Learning Engineer | Python Developer Artificial Intelligence | Computer Vision | Deep Learning Enthusiast
