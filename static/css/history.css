@@ -1,0 +1,195 @@
+/* Page */
+
+.history-page{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+}
+
+/* Header */
+
+.history-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.history-header h1{
+    color:white;
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.history-header p{
+    color:#cbd5e1;
+}
+
+/* Search Card */
+
+.search-card{
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+}
+
+.search-card form{
+    display:flex;
+    gap:15px;
+}
+
+.search-card input{
+    flex:1;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.08);
+
+    color:white;
+
+    font-size:15px;
+}
+
+.search-card input::placeholder{
+    color:#94a3b8;
+}
+
+.search-card input:focus{
+    outline:none;
+
+    box-shadow:
+    0 0 0 3px rgba(99,102,241,.4);
+}
+
+.search-card button{
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:600;
+
+    background:
+    linear-gradient(
+        135deg,
+        #6366f1,
+        #06b6d4
+    );
+
+    transition:.3s;
+}
+
+.search-card button:hover{
+    transform:translateY(-2px);
+}
+
+/* Table Card */
+
+.table-card{
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.25);
+}
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:rgba(255,255,255,0.08);
+}
+
+th{
+    color:white;
+    padding:18px;
+    text-align:left;
+}
+
+td{
+    color:#e2e8f0;
+    padding:18px;
+}
+
+tbody tr{
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+tbody tr:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+/* Delete Button */
+
+.delete-btn{
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+
+    transition:.3s;
+}
+
+.delete-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .search-card form{
+        flex-direction:column;
+    }
+
+    .search-card button{
+        width:100%;
+    }
+
+    .table-card{
+        overflow-x:auto;
+    }
+
+    table{
+        min-width:800px;
+    }
+
+}

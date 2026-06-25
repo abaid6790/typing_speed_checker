@@ -1,0 +1,108 @@
+/* Page */
+
+.achievements-page{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+}
+
+/* Header */
+
+.achievements-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.achievements-header h1{
+    color:white;
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.achievements-header p{
+    color:#cbd5e1;
+}
+
+/* Grid */
+
+.achievements-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+/* Achievement Card */
+
+.achievement-card{
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:24px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.25);
+}
+
+.achievement-card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.35);
+}
+
+/* Badge */
+
+.badge{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+/* Achievement Name */
+
+.achievement-card h3{
+    color:white;
+    font-size:1.3rem;
+    margin-bottom:12px;
+}
+
+/* Date */
+
+.unlock-date{
+    color:#94a3b8;
+    font-size:0.95rem;
+}
+
+/* Empty State */
+
+.achievements-grid:empty::before{
+    content:"No achievements unlocked yet.";
+    color:white;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .achievements-header h1{
+        font-size:2rem;
+    }
+
+    .achievement-card{
+        padding:25px;
+    }
+
+    .badge{
+        font-size:3rem;
+    }
+
+}

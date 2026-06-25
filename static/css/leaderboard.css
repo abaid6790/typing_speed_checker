@@ -1,0 +1,106 @@
+/* Page */
+
+.leaderboard-page{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+}
+
+/* Header */
+
+.leaderboard-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.leaderboard-header h1{
+    color:white;
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.leaderboard-header p{
+    color:#cbd5e1;
+}
+
+/* Card */
+
+.leaderboard-card{
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.25);
+}
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:rgba(255,255,255,0.08);
+}
+
+th{
+    color:white;
+    padding:20px;
+    text-align:left;
+    font-size:15px;
+    font-weight:600;
+}
+
+td{
+    color:#e2e8f0;
+    padding:20px;
+}
+
+tbody tr{
+    border-top:1px solid rgba(255,255,255,0.08);
+    transition:0.3s;
+}
+
+tbody tr:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+/* Top 3 Rows */
+
+tbody tr:nth-child(1){
+    background:rgba(255,215,0,0.08);
+}
+
+tbody tr:nth-child(2){
+    background:rgba(192,192,192,0.08);
+}
+
+tbody tr:nth-child(3){
+    background:rgba(205,127,50,0.08);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .leaderboard-card{
+        overflow-x:auto;
+    }
+
+    table{
+        min-width:700px;
+    }
+
+    .leaderboard-header h1{
+        font-size:2rem;
+    }
+
+}

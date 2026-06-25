@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/typing.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="typing-page">
+
+    <div class="typing-header">
+
+        <h1>⌨️ Typing Test</h1>
+
+        <div class="controls">
+
+            <select id="difficulty-select">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <select id="timer-select">
+                <option value="15">15 Seconds</option>
+                <option value="30">30 Seconds</option>
+                <option value="60" selected>60 Seconds</option>
+            </select>
+
+            <button onclick="applySettings()">
+                Apply
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="typing-container">
+
+        <div class="top-bar">
+
+            <div class="timer-card">
+                ⏱ <span id="timer">{{ timer }}</span>s
+            </div>
+
+            <div class="stat-card">
+                WPM
+                <strong id="wpm">0</strong>
+            </div>
+
+            <div class="stat-card">
+                Accuracy
+                <strong>
+                    <span id="accuracy">100</span>%
+                </strong>
+            </div>
+
+            <div class="stat-card">
+                Mistakes
+                <strong id="mistakes">0</strong>
+            </div>
+
+        </div>
+
+        <div id="paragraph"
+             class="paragraph">
+            {{ paragraph }}
+        </div>
+
+        <textarea
+            id="input"
+            placeholder="Start typing here..."
+        ></textarea>
+
+    </div>
+
+</div>
+
+<script>
+
+const paragraphText = {{ paragraph|tojson }};
+const difficulty = "{{ difficulty }}";
+const duration = Number("{{ timer }}");
+
+</script>
+
+<script src="{{ url_for('static', filename='js/typing.js') }}"></script>
+
+{% endblock %}

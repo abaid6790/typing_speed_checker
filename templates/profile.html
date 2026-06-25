@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="profile-page">
+
+    <div class="profile-header">
+
+        <h1>My Profile</h1>
+
+        <p>
+            Manage your account information and view your progress.
+        </p>
+
+    </div>
+
+    <div class="profile-card">
+
+        <h2>Edit Profile</h2>
+
+        <form
+            action="/update-profile"
+            method="POST"
+            class="profile-form"
+        >
+
+            <input
+                type="text"
+                name="full_name"
+                value="{{ profile.full_name }}"
+                placeholder="Full Name"
+            >
+
+            <button type="submit">
+                Update Profile
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="profile-stats">
+
+        <div class="profile-stat">
+            <h3>Email</h3>
+            <h2>{{ profile.email }}</h2>
+        </div>
+
+        <div class="profile-stat">
+            <h3>Level</h3>
+            <h2>{{ stats.level }}</h2>
+        </div>
+
+        <div class="profile-stat">
+            <h3>Total XP</h3>
+            <h2>{{ stats.total_xp }}</h2>
+        </div>
+
+        <div class="profile-stat">
+            <h3>Total Tests</h3>
+            <h2>{{ stats.total_tests }}</h2>
+        </div>
+
+        <div class="profile-stat">
+            <h3>Best WPM</h3>
+            <h2>{{ stats.best_wpm }}</h2>
+        </div>
+
+        <div class="profile-stat">
+            <h3>Join Date</h3>
+            <h2>{{ profile.created_at[:10] }}</h2>
+        </div>
+
+        <div class="profile-card">
+
+        <h3>
+            Public Profile Link
+        </h3>
+
+        <input
+            type="text"
+            readonly
+            value="{{ request.host_url }}user/{{ session.user_id }}"
+        >
+
+    </div>
+    </div>
+
+</div>
+
+{% endblock %}

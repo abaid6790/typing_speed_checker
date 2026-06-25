@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/leaderboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="leaderboard-page">
+
+    <div class="leaderboard-header">
+
+        <h1>🏆 Global Leaderboard</h1>
+
+        <p>
+            Top performers ranked by their typing achievements.
+        </p>
+
+    </div>
+
+    <div class="leaderboard-card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Rank</th>
+                    <th>Best WPM</th>
+                    <th>Level</th>
+                    <th>Total XP</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for user in users %}
+
+                <tr>
+
+                    <td>
+                        {% if loop.index == 1 %}
+                            🥇 #{{ loop.index }}
+                        {% elif loop.index == 2 %}
+                            🥈 #{{ loop.index }}
+                        {% elif loop.index == 3 %}
+                            🥉 #{{ loop.index }}
+                        {% else %}
+                            #{{ loop.index }}
+                        {% endif %}
+                    </td>
+
+                    <td>{{ user.best_wpm }}</td>
+
+                    <td>{{ user.level }}</td>
+
+                    <td>{{ user.total_xp }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

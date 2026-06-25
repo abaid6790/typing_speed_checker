@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <div class="top-section">
+
+        <div class="welcome-card">
+
+            <h1>Welcome Back 👋</h1>
+
+            <p>
+                Track your typing performance and improve daily.
+            </p>
+
+            <a href="/typing" class="start-btn">
+                Start Test
+            </a>
+
+        </div>
+
+        <div class="level-card">
+
+            <h2>Level {{ stats.level }}</h2>
+
+            <span>{{ stats.total_xp }} XP</span>
+
+            <div class="xp-bar">
+
+                <div class="xp-fill"
+                     style="width: {{ stats.total_xp % 100 }}%;">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <span>⌨️</span>
+            <h3>Tests</h3>
+            <h2>{{ stats.total_tests }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <span>🚀</span>
+            <h3>Best WPM</h3>
+            <h2>{{ stats.best_wpm }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <span>📈</span>
+            <h3>Average</h3>
+            <h2>{{ stats.average_wpm }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <span>🎯</span>
+            <h3>Accuracy</h3>
+            <h2>{{ stats.highest_accuracy }}%</h2>
+        </div>
+
+        <div class="stat-card">
+            <span>⚡</span>
+            <h3>Total XP</h3>
+            <h2>{{ stats.total_xp }}</h2>
+        </div>
+
+        <div class="stat-card">
+            <span>🏆</span>
+            <h3>Level</h3>
+            <h2>{{ stats.level }}</h2>
+        </div>
+
+    </div>
+
+    <div class="quick-actions">
+
+        <a href="/history">History</a>
+
+        <a href="/analytics">Analytics</a>
+
+        <a href="/leaderboard">Leaderboard</a>
+
+        <a href="/achievements">Achievements</a>
+
+    </div>
+
+</div>
+
+{% endblock %}

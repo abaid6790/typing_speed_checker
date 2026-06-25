@@ -1,54 +1,50 @@
-# Environment
-
-.env
-
 # Python
-
-**pycache**/
-*.pyc
-*.pyo
-*.pyd
+__pycache__/
+*.py[cod]
+*$py.class
 
 # Virtual Environment
-
 venv/
 env/
+ENV/
+
+# Environment Variables
+.env
+
+# Flask
+instance/
+.flaskenv
 
 # VS Code
-
 .vscode/
 
 # PyCharm
-
 .idea/
 
 # Logs
-
 *.log
 
-# OS Files
+# Database
+*.db
+*.sqlite3
 
+# OS Files
 .DS_Store
 Thumbs.db
 
-# Flask
-
-instance/
-
-# Testing
-
-.pytest_cache/
-
-# Build
-
-dist/
+# Build Files
 build/
+dist/
+*.egg-info/
 
-# Supabase
+# Cache
+.pytest_cache/
+.mypy_cache/
+.cache/
 
-.supabase/
+# Jupyter
+.ipynb_checkpoints/
 
-# Sounds Cache
-
-*.wav
-*.mp3
+# Coverage
+.coverage
+htmlcov/

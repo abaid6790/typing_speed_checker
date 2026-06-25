@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Typing Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/global.css') }}">
+
+    {% block head %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+    {% if session.get('user_id') %}
+
+    <nav class="navbar">
+
+        <h2 class="logo">
+            Typing Platform
+        </h2>
+
+        <div class="nav-links">
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/typing">
+                Typing Test
+            </a>
+
+            <a href="/history">
+                History
+            </a>
+
+            <a href="/analytics">
+                Analytics
+            </a>
+
+            <a href="/achievements">
+                Achievements
+            </a>
+
+            <a href="/profile">
+                Profile
+            </a>
+
+            <a href="/leaderboard">
+                Leaderboard
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+    {% endif %}
+
+    <main class="main-container">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                {% for category, message in messages %}
+
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-easy_paragraphs = [
+paragraphs = [
     "Python is easy to learn and fun to use.",
     "Practice typing every day to improve.",
     "Coding helps solve real world problems.",
@@ -10,6 +10,7 @@ easy_paragraphs = [
     "Reading books improves knowledge and focus.",
     "Typing speed increases with daily practice."
 ]
+
 
 medium_paragraphs = [
     "Machine learning enables systems to learn patterns from data without explicit programming.",

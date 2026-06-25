@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/history.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="history-page">
+
+    <div class="history-header">
+
+        <h1>Typing History</h1>
+
+        <p>
+            Review your previous typing test results.
+        </p>
+
+    </div>
+
+    <div class="search-card">
+
+        <form method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search by WPM..."
+                value="{{ search }}"
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+                    <th>WPM</th>
+                    <th>Accuracy</th>
+                    <th>Mistakes</th>
+                    <th>Difficulty</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for result in results %}
+
+                <tr>
+
+                    <td>{{ result.created_at[:10] }}</td>
+
+                    <td>{{ result.wpm }}</td>
+
+                    <td>{{ result.accuracy }}%</td>
+
+                    <td>{{ result.mistakes }}</td>
+
+                    <td>{{ result.difficulty }}</td>
+
+                    <td>
+
+                        <a
+                            href="/delete-result/{{ result.id }}"
+                            class="delete-btn"
+                        >
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

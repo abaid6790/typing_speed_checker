@@ -1,518 +1,222 @@
-/* ==========================================
-   PREMIUM LOGIN PAGE CSS
-   Glassmorphism + Animated Gradient
-========================================== */
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* Reset */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
+/* Body */
+
 body{
-    font-family:'Poppins',sans-serif;
-
     min-height:100vh;
-
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:20px;
 
-    overflow:hidden;
-
-    background:linear-gradient(
-        -45deg,
+    background:
+    linear-gradient(
+        135deg,
         #0f172a,
         #1e293b,
-        #312e81,
-        #4f46e5,
-        #0f172a
+        #312e81
     );
 
-    background-size:400% 400%;
-
-    animation:bgAnimation 15s ease infinite;
-}
-
-@keyframes bgAnimation{
-    0%{
-        background-position:0% 50%;
-    }
-    50%{
-        background-position:100% 50%;
-    }
-    100%{
-        background-position:0% 50%;
-    }
-}
-
-/* ==========================
-   FLOATING SHAPES
-========================== */
-
-.background{
-    position:fixed;
-    width:100%;
-    height:100%;
     overflow:hidden;
-    z-index:-1;
+    position:relative;
 }
 
-.shape{
+/* Background Circles */
+
+body::before,
+body::after{
+    content:"";
     position:absolute;
     border-radius:50%;
-    filter:blur(70px);
+    filter:blur(100px);
 }
 
-.shape:nth-child(1){
-    width:320px;
-    height:320px;
-
-    background:#4f46e5;
-
-    top:-100px;
-    left:-100px;
-
-    opacity:.5;
-
-    animation:floatOne 10s ease-in-out infinite;
-}
-
-.shape:nth-child(2){
+body::before{
     width:350px;
     height:350px;
+    background:#6366f1;
+    top:-100px;
+    left:-100px;
+}
 
+body::after{
+    width:350px;
+    height:350px;
     background:#06b6d4;
-
-    right:-120px;
-    bottom:-120px;
-
-    opacity:.5;
-
-    animation:floatTwo 12s ease-in-out infinite;
+    bottom:-100px;
+    right:-100px;
 }
 
-@keyframes floatOne{
-    50%{
-        transform:
-        translate(60px,40px)
-        scale(1.2);
-    }
-}
+/* Card */
 
-@keyframes floatTwo{
-    50%{
-        transform:
-        translate(-60px,-40px)
-        scale(1.2);
-    }
-}
+.card{
+    width:100%;
+    max-width:450px;
 
-/* ==========================
-   AUTH CONTAINER
-========================== */
+    padding:45px;
 
-.auth-container{
-
-    width:420px;
-
-    padding:35px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,0.08);
 
     backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,0.15);
 
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35);
-
-    animation:fadeIn .8s ease;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:
-        translateY(40px)
-        scale(.9);
-    }
-    to{
-        opacity:1;
-        transform:
-        translateY(0)
-        scale(1);
-    }
-}
-
-/* ==========================
-   TOGGLE BUTTONS
-========================== */
-
-.form-toggle{
-
-    display:flex;
-
-    background:
-        rgba(255,255,255,.08);
-
-    border-radius:15px;
-
-    padding:5px;
-
-    margin-bottom:30px;
-}
-
-.form-toggle button{
-
-    flex:1;
-
-    border:none;
-
-    background:none;
-
-    color:#fff;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    padding:12px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.form-toggle button.active{
-
-    background:
-        linear-gradient(
-            135deg,
-            #6366f1,
-            #06b6d4
-        );
+    border-radius:24px;
 
     box-shadow:
-        0 5px 15px rgba(99,102,241,.4);
-}
-
-/* ==========================
-   FORM
-========================== */
-
-.auth-form{
-
-    display:flex;
-
-    flex-direction:column;
-
-    animation:slideIn .5s ease;
-}
-
-@keyframes slideIn{
-    from{
-        opacity:0;
-        transform:translateX(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
-}
-
-.auth-form h2{
-
-    color:white;
+    0 20px 50px rgba(0,0,0,0.35);
 
     text-align:center;
 
-    margin-bottom:25px;
-
-    font-size:28px;
-
-    font-weight:700;
-}
-
-/* ==========================
-   INPUT GROUP
-========================== */
-
-.input-group{
-
     position:relative;
-
-    margin-bottom:22px;
+    z-index:10;
 }
 
-.input-group input{
+/* Heading */
 
+.card h1{
+    color:white;
+    font-size:2.2rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.card h1::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:4px;
+    background:#06b6d4;
+    margin:12px auto 0;
+    border-radius:20px;
+}
+
+/* Form */
+
+.card form{
+    margin-top:35px;
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* Inputs */
+
+.card input{
     width:100%;
-
-    padding:16px;
+    padding:15px 18px;
 
     border:none;
 
-    outline:none;
+    border-radius:12px;
 
-    border-radius:14px;
-
-    background:
-        rgba(255,255,255,.08);
+    background:rgba(255,255,255,0.12);
 
     color:white;
 
     font-size:15px;
 
-    border:1px solid rgba(255,255,255,.08);
-
-    transition:.3s;
+    transition:0.3s;
 }
 
-.input-group input:focus{
+.card input::placeholder{
+    color:rgba(255,255,255,0.7);
+}
 
-    border-color:#06b6d4;
+.card input:focus{
+    outline:none;
+
+    background:rgba(255,255,255,0.18);
 
     box-shadow:
-        0 0 15px rgba(6,182,212,.35);
+    0 0 0 3px rgba(99,102,241,0.35);
 }
 
-.input-group label{
+/* Button */
 
-    position:absolute;
-
-    left:16px;
-    top:15px;
-
-    color:#cbd5e1;
-
-    pointer-events:none;
-
-    transition:.3s;
-}
-
-.input-group input:focus + label,
-.input-group input:valid + label{
-
-    top:-10px;
-
-    left:12px;
-
-    font-size:12px;
-
-    padding:0 6px;
-
-    background:#1e293b;
-
-    border-radius:8px;
-
-    color:#06b6d4;
-}
-
-/* ==========================
-   OPTIONS
-========================== */
-
-.options{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:22px;
-
-    color:white;
-
-    font-size:14px;
-}
-
-.link{
-
-    color:#38bdf8;
-
-    text-decoration:none;
-}
-
-.link:hover{
-
-    text-decoration:underline;
-}
-
-.checkbox-container{
-
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-/* ==========================
-   BUTTON
-========================== */
-
-.btn-primary{
-
-    border:none;
+.card button{
+    margin-top:10px;
 
     padding:15px;
 
-    border-radius:14px;
+    border:none;
+
+    border-radius:12px;
 
     background:
-        linear-gradient(
-            135deg,
-            #6366f1,
-            #06b6d4
-        );
+    linear-gradient(
+        135deg,
+        #6366f1,
+        #06b6d4
+    );
 
     color:white;
 
     font-size:16px;
-
     font-weight:600;
 
     cursor:pointer;
 
-    transition:.3s;
-
-    margin-top:5px;
+    transition:0.3s;
 }
 
-.btn-primary:hover{
-
-    transform:
-        translateY(-3px);
+.card button:hover{
+    transform:translateY(-3px);
 
     box-shadow:
-        0 10px 25px rgba(99,102,241,.4);
+    0 10px 25px rgba(99,102,241,0.4);
 }
 
-.btn-primary:active{
+/* Footer Text */
 
-    transform:scale(.97);
-}
+.card p{
+    margin-top:25px;
 
-/* ==========================
-   DIVIDER
-========================== */
-
-.divider{
-
-    text-align:center;
-
-    margin:22px 0;
-
-    color:#cbd5e1;
-
-    position:relative;
-}
-
-.divider::before,
-.divider::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:40%;
-
-    height:1px;
-
-    background:
-        rgba(255,255,255,.2);
-
-    top:50%;
-}
-
-.divider::before{
-    left:0;
-}
-
-.divider::after{
-    right:0;
-}
-
-/* ==========================
-   FOOTER TEXT
-========================== */
-
-.switch-text{
-
-    text-align:center;
-
-    color:#e2e8f0;
-
-    margin-top:20px;
+    color:#d1d5db;
 
     font-size:14px;
 }
 
-.switch-text a{
+/* Links */
 
-    color:#38bdf8;
-
+.card a{
+    color:#22d3ee;
     text-decoration:none;
-
     font-weight:600;
 }
 
-.switch-text a:hover{
-
+.card a:hover{
     text-decoration:underline;
 }
 
-/* ==========================
-   HIDDEN FORM
-========================== */
-
-.hidden{
-    display:none;
-}
-
-/* ==========================
-   FORGOT PASSWORD TEXT
-========================== */
-
-#forgot-form p{
-
-    color:#cbd5e1;
-
-    text-align:center;
-
-    margin-bottom:20px;
-
-    font-size:14px;
-}
-
-/* ==========================
-   RESPONSIVE
-========================== */
+/* Mobile */
 
 @media(max-width:500px){
 
-    .auth-container{
-
-        width:95%;
-
-        padding:25px;
+    .card{
+        padding:30px 22px;
     }
 
-    .auth-form h2{
-
-        font-size:24px;
+    .card h1{
+        font-size:1.8rem;
     }
 
-    .options{
-
-        flex-direction:column;
-
-        gap:10px;
-    }
+}
+.subtitle{
+    color:#cbd5e1;
+    margin-top:10px;
+    margin-bottom:25px;
+    font-size:14px;
 }
