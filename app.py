@@ -107,6 +107,93 @@ def create_profile():
         return jsonify({
             "error": str(e)
         }), 500
+#   Save Result
+@app.route("/save-result", methods=["POST"])
+def save_result():
+
+    user_id = session.get("user")
+
+    data = request.json
+
+    print("RECEIVED DATA:")
+    print(data)
+
+    try:
+
+        result = (
+            supabase.table("typing_results")
+            .insert({
+                "user_id": user_id,
+                "wpm": int(data["wpm"]),
+                "accuracy": float(data["accuracy"]),
+                "mistakes": int(data["mistakes"]),
+                "difficulty": str(data["difficulty"]),
+                "achievement": str(data["achievement"])
+            })
+            .execute()
+        )
+
+        print(result)
+
+        return jsonify({
+            "message": "Saved"
+        })
+
+    except Exception as e:
+
+        print("SAVE RESULT ERROR:")
+        print(e)
+
+        return jsonify({
+            "error": str(e)
+        }), 500
+#   Update Stat
+@app.route("/update-stats", methods=["POST"])
+def update_stats():
+    user_id = session.get("user")
+    if not user_id:
+        return jsonify({
+            "error": "Not logged in"
+        }), 401
+    data = request.json
+    wpm = data["wpm"]
+    try:
+        existing = (
+            supabase.table("user_stats")
+            .select("*")
+            .eq("user_id", user_id)
+            .execute()
+        )
+        if not existing.data:
+            supabase.table("user_stats").insert({
+                "user_id": user_id,
+                "total_tests": 1,
+                "best_wpm": wpm,
+                "total_xp": wpm,
+                "level": 1
+            }).execute()
+        else:
+            stats = existing.data[0]
+            total_tests = stats["total_tests"] + 1
+            best_wpm = max(stats["best_wpm"], wpm)
+            total_xp = stats["total_xp"] + wpm
+            level = (total_xp // 500) + 1
+            supabase.table("user_stats").update({
+                "total_tests": total_tests,
+                "best_wpm": best_wpm,
+                "total_xp": total_xp,
+                "level": level
+            }).eq(
+                "user_id",
+                user_id
+            ).execute()
+        return jsonify({
+            "message": "Stats updated"
+        })
+    except Exception as e:
+        return jsonify({
+            "error": str(e)
+        }), 500
 # -------------------------
 # CURRENT USER
 # -------------------------

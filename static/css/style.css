@@ -389,3 +389,17 @@ textarea:focus{
         min-height:90px;
     }
 }
+#logout-btn{
+    background:#ff4d4d;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.3s;
+}
+
+#logout-btn:hover{
+    background:#e60000;
+}
