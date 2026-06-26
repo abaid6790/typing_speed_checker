@@ -1,0 +1,161 @@
+/* Page */
+.challenges-page{
+    max-width:1200px;
+    margin:20px auto;
+    padding:20px;
+}
+/* Header */
+.page-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+.page-header h1{
+    color:white;
+    font-size:2.4rem;
+    margin-bottom:10px;
+}
+.page-header p{
+    color:#cbd5e1;
+    font-size:15px;
+}
+/* Section */
+.section-header{
+    margin:30px 0 18px;
+}
+.section-header h2{
+    color:white;
+    font-size:1.5rem;
+}
+/* Grid */
+.challenge-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+/* Card */
+.challenge-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(20px);
+    border-radius:20px;
+    padding:22px;
+    text-align:center;
+    transition:.3s;
+}
+.challenge-card:hover{
+    transform:translateY(-5px);
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.25);
+}
+/* Icon */
+.challenge-icon{
+    width:65px;
+    height:65px;
+    margin:auto;
+    margin-bottom:15px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    background:
+    linear-gradient(
+        135deg,
+        #6366f1,
+        #06b6d4
+    );
+}
+/* Title */
+.challenge-card h3{
+    color:white;
+    margin-bottom:10px;
+    font-size:20px;
+}
+/* Description */
+.challenge-card p{
+    color:#cbd5e1;
+    line-height:1.6;
+    font-size:14px;
+}
+/* Reward */
+.reward{
+    margin-top:18px;
+    padding:10px;
+    border-radius:12px;
+    background:rgba(99,102,241,.18);
+    color:#38bdf8;
+    font-weight:600;
+}
+/* Mobile */
+@media(max-width:768px){
+    .page-header h1{
+        font-size:2rem;
+    }
+}
+.progress-text{
+    color:white;
+    margin-top:15px;
+    font-size:14px;
+}
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#263244;
+    border-radius:50px;
+    margin:10px 0;
+    overflow:hidden;
+}
+.progress-fill{
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #06b6d4
+    );
+}
+.status{
+    display:inline-block;
+    margin-top:8px;
+    padding:6px 12px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+.complete{
+    background:#16a34a;
+    color:white;
+}
+.pending{
+    background:#f59e0b;
+    color:white;
+}
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#222;
+    border-radius:20px;
+    margin-top:18px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #38bdf8
+    );
+}
+
+.progress-text{
+    margin-top:8px;
+    color:#ddd;
+    font-size:14px;
+}
+
+.completed{
+    margin-top:12px;
+    color:#4ade80;
+    font-weight:bold;
+}

@@ -8,9 +8,9 @@ from routes.analytics import analytics_bp
 from routes.achievements import achievements_bp
 from routes.profile import profile_bp
 from routes.leaderboard import leaderboard_bp
+from routes.challenges import challenges_bp
 
 app = Flask(__name__)
-
 app.config.from_object(Config)
 
 app.register_blueprint(auth_bp)
@@ -21,6 +21,7 @@ app.register_blueprint(analytics_bp)
 app.register_blueprint(achievements_bp)
 app.register_blueprint(profile_bp)
 app.register_blueprint(leaderboard_bp)
+app.register_blueprint(challenges_bp)
 
 if __name__ == "__main__":
     app.run(

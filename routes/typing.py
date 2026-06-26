@@ -2,7 +2,9 @@ from flask import Blueprint, render_template, session, redirect, url_for
 from flask import request, jsonify
 from database.supabase import supabase
 from utils.achievements import check_achievements
+from utils.challenges import update_challenges
 import random
+from datetime import date, datetime
 from data.easy import paragraphs as easy
 from data.medium import paragraphs as medium
 from data.hard import paragraphs as hard
@@ -23,7 +25,8 @@ def typing_test():
         "typing_test.html",
         paragraph=paragraph,
         difficulty=difficulty,
-        timer=timer    )
+        timer=timer
+    )
 @typing_bp.route("/save-result", methods=["POST"])
 def save_result():
     if "user_id" not in session:
@@ -36,6 +39,7 @@ def save_result():
     difficulty = data["difficulty"]
     duration = data["duration"]
     xp = int(wpm)
+    # Save typing result
     supabase.table("typing_results").insert({
         "user_id": user_id,
         "wpm": wpm,
@@ -45,6 +49,7 @@ def save_result():
         "duration": duration,
         "xp_earned": xp
     }).execute()
+    # Fetch current stats
     stats = (
         supabase
         .table("user_stats")
@@ -54,19 +59,16 @@ def save_result():
     )
     current = stats.data[0]
     total_tests = current["total_tests"] + 1
-    from datetime import date
     today = str(date.today())
     streak = current.get("streak", 0)
     last_date = current.get("last_test_date")
     if last_date:
-        from datetime import datetime
         last = datetime.strptime(
             str(last_date),
             "%Y-%m-%d"
         ).date()
-        current_date = date.today()
         difference = (
-            current_date - last
+            date.today() - last
         ).days
         if difference == 1:
             streak += 1
@@ -74,7 +76,10 @@ def save_result():
             streak = 1
     else:
         streak = 1
-    best_wpm = max(current["best_wpm"], wpm)
+    best_wpm = max(
+        current["best_wpm"],
+        wpm
+    )
     highest_accuracy = max(
         current["highest_accuracy"],
         accuracy
@@ -88,16 +93,32 @@ def save_result():
         + wpm
     ) / total_tests
     level = (total_xp // 100) + 1
+    # Update user stats
     supabase.table("user_stats").update({
-    "total_tests": total_tests,
-    "best_wpm": best_wpm,
-    "highest_accuracy": highest_accuracy,
-    "average_wpm": round(average_wpm),
-    "total_xp": total_xp,
-    "level": level
+        "total_tests": total_tests,
+        "best_wpm": best_wpm,
+        "highest_accuracy": highest_accuracy,
+        "average_wpm": round(average_wpm),
+        "total_xp": total_xp,
+        "level": level,
+        "streak": streak,
+        "last_test_date": today
     }).eq(
         "user_id",
         user_id
     ).execute()
+    # Update challenge progress
+    update_challenges(
+        user_id=user_id,
+        wpm=wpm,
+        accuracy=accuracy,
+        xp=xp,
+        total_tests=total_tests,
+        total_xp=total_xp
+
+    )
+    # Check achievements
     check_achievements(user_id)
-    return jsonify({"success": True})
+    return jsonify({
+        "success": True
+    })

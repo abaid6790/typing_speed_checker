@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/challenges.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="challenges-page">
+
+    <div class="page-header">
+        <h1>🏆 Challenges</h1>
+        <p>Complete challenges to earn XP and level up faster.</p>
+    </div>
+
+    <!-- DAILY -->
+
+    <div class="section-header">
+        <h2>🌞 Daily Challenges</h2>
+    </div>
+
+    <div class="challenge-grid">
+
+        {% for c in daily %}
+
+        <div class="challenge-card">
+
+            <div class="challenge-icon">
+                🎯
+            </div>
+
+            <h3>{{ c.title }}</h3>
+
+            <p>{{ c.description }}</p>
+
+            {% set p = progress.get(c.id|string) %}
+
+            {% if p %}
+
+            <div class="progress-bar">
+                <div class="progress-fill"
+                     style="width: {{ (p.progress / c.target * 100)|round }}%;">
+                </div>
+            </div>
+
+            <div class="progress-text">
+                {{ p.progress }}/{{ c.target }}
+            </div>
+
+            {% if p.completed %}
+
+            <div class="completed">
+                ✅ Completed
+            </div>
+
+            {% endif %}
+
+            {% else %}
+
+            <div class="progress-bar">
+                <div class="progress-fill"
+                     style="width:0%">
+                </div>
+            </div>
+
+            <div class="progress-text">
+                0/{{ c.target }}
+            </div>
+
+            {% endif %}
+
+            <div class="reward">
+                🎁 {{ c.reward_xp }} XP
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- WEEKLY -->
+
+    <div class="section-header">
+        <h2>📅 Weekly Challenges</h2>
+    </div>
+
+    <div class="challenge-grid">
+
+        {% for c in weekly %}
+
+        <div class="challenge-card">
+
+            <div class="challenge-icon">
+                ⭐
+            </div>
+
+            <h3>{{ c.title }}</h3>
+
+            <p>{{ c.description }}</p>
+
+            {% set p = progress.get(c.id|string) %}
+
+            {% if p %}
+
+            <div class="progress-bar">
+                <div class="progress-fill"
+                     style="width: {{ (p.progress / c.target * 100)|round }}%;">
+                </div>
+            </div>
+
+            <div class="progress-text">
+                {{ p.progress }}/{{ c.target }}
+            </div>
+
+            {% if p.completed %}
+
+            <div class="completed">
+                ✅ Completed
+            </div>
+
+            {% endif %}
+
+            {% else %}
+
+            <div class="progress-bar">
+                <div class="progress-fill"
+                     style="width:0%">
+                </div>
+            </div>
+
+            <div class="progress-text">
+                0/{{ c.target }}
+            </div>
+
+            {% endif %}
+
+            <div class="reward">
+                🎁 {{ c.reward_xp }} XP
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

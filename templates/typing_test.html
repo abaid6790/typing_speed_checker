@@ -9,6 +9,8 @@
 
 <div class="typing-page">
 
+    <!-- Header -->
+
     <div class="typing-header">
 
         <h1>⌨️ Typing Test</h1>
@@ -35,12 +37,17 @@
 
     </div>
 
+    <!-- Typing Card -->
+
     <div class="typing-container">
+
+        <!-- Stats -->
 
         <div class="top-bar">
 
             <div class="timer-card">
-                ⏱ <span id="timer">{{ timer }}</span>s
+                ⏱
+                <span id="timer">{{ timer }}</span>s
             </div>
 
             <div class="stat-card">
@@ -62,15 +69,43 @@
 
         </div>
 
-        <div id="paragraph"
-             class="paragraph">
+        <!-- Paragraph -->
+
+        <div
+            id="paragraph"
+            class="paragraph"
+        >
             {{ paragraph }}
         </div>
+
+        <!-- Typing Area -->
 
         <textarea
             id="input"
             placeholder="Start typing here..."
+            autocomplete="off"
+            spellcheck="false"
         ></textarea>
+
+        <!-- Action Buttons -->
+
+        <div class="typing-buttons">
+
+            <button
+                class="restart-btn"
+                onclick="restartTest()"
+            >
+                🔄 Restart
+            </button>
+
+            <button
+                class="new-btn"
+                onclick="newTest()"
+            >
+                📄 New Test
+            </button>
+
+        </div>
 
     </div>
 
