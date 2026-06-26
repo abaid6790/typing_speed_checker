@@ -211,11 +211,8 @@ http://127.0.0.1:5000
 - AI Typing Coach
 - PDF Certificates
 - CSV/Excel Export
-- Email Verification
-- Forgot Password System
 - Daily Challenges
 - Weekly Challenges
-- Public User Profiles
 
 ---
 ---
