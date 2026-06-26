@@ -8,7 +8,6 @@ from routes.analytics import analytics_bp
 from routes.achievements import achievements_bp
 from routes.profile import profile_bp
 from routes.leaderboard import leaderboard_bp
-from routes.public_profile import public_profile_bp
 
 app = Flask(__name__)
 
@@ -22,7 +21,6 @@ app.register_blueprint(analytics_bp)
 app.register_blueprint(achievements_bp)
 app.register_blueprint(profile_bp)
 app.register_blueprint(leaderboard_bp)
-app.register_blueprint(public_profile_bp)
 
 if __name__ == "__main__":
     app.run(
