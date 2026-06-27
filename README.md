@@ -249,8 +249,16 @@ http://127.0.0.1:5000
 
 - Multiplayer Mode
 - AI Typing Coach
-
+- Keyboard Heatmap
+- Custom Paragraph Upload
+- Certificates
+- Dark/Light Theme
+- Typing Race
+- Friends System
+- Global Statistics
 ---
 
 ## 👨‍💻 Author
 Abaid-ur-Rehman
+AI & Machine Learning Enthusiast
+Python Developer
