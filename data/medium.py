@@ -8,5 +8,9 @@ paragraphs = [
     "Computer vision enables machines to interpret and understand visual information.",
     "Developers use version control systems to track changes in software projects.",
     "Algorithms are essential for solving computational problems efficiently.",
-    "Artificial intelligence is transforming industries through automation and prediction."
+    "Artificial intelligence is transforming industries through automation and prediction.",
+    "The quick brown fox jumps over the lazy dog.",
+    "practice makes progress , not perfection" , 
+    "Consistency beat motivation every single time "
+    "Small improvements every day create huge results."
 ]

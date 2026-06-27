@@ -1,222 +1,256 @@
-# AI-Powered Typing Speed Tester & Productivity Platform
+# 🚀 AI Typing Speed Tester
 
-A full-stack typing speed tester and productivity platform built using Flask, Supabase, HTML, CSS, JavaScript, and Chart.js.
-
-The application helps users improve typing speed and accuracy while tracking performance through analytics, achievements, leaderboards, and gamification features.
+A modern Typing Speed Test platform built with **Flask** and **Supabase** featuring authentication, leaderboards, achievements, challenges, analytics, profiles, and gamification.
 
 ---
 
-## Features
+## ✨ Features
 
-### Authentication
+### 👤 Authentication
 - User Registration
-- User Login
-- User Logout
-- Secure Session Management
-- Protected Routes
+- Secure Login
+- Logout
+- Email Verification (Supabase)
+- Forgot Password
+- Reset Password
 
-### Typing Test
-- Real-Time Typing Speed (WPM)
-- Real-Time Accuracy Calculation
-- Mistake Tracking
-- Easy, Medium, Hard Difficulty Levels
-- Multiple Test Durations
-- Random Paragraph Generation
-- Auto Start Timer
-- Auto Finish Test
-- Restart Test
+---
 
-### Dashboard
-- User Statistics Overview
+### ⌨ Typing Test
+
+- Easy / Medium / Hard Modes
+- 30 / 60 / 120 Second Tests
+- Live WPM Calculation
+- Live Accuracy
+- Mistake Counter
+- XP Reward System
+- Automatic Result Saving
+
+---
+
+### 📊 Dashboard
+
+- Total Tests
 - Best WPM
 - Average WPM
-- Total Tests
+- Highest Accuracy
 - Total XP
-- Level Tracking
-- Streak Tracking
-
-### Analytics
-- WPM Trend Charts
-- Accuracy Trend Charts
-- Progress Visualization
-- Performance Analytics using Chart.js
-
-### Gamification
-- XP Reward System
-- Level System
-- Achievement System
-- Badge Unlocking
-- Daily Streak Tracking
-
-### Leaderboard
-- Global Ranking
-- Best WPM Ranking
-- XP Ranking
-- Level Ranking
-
-### Profile Management
-- User Profile Page
-- Update Profile Information
-- Track Progress and Achievements
-
-### Database Integration
-- Supabase PostgreSQL Database
-- Secure Data Storage
-- Real-Time User Statistics
+- Current Level
+- Current Streak
 
 ---
 
-## Tech Stack
+### 📈 Analytics
 
-### Frontend
-- HTML5
-- CSS3
+- WPM History
+- Accuracy History
+- Progress Charts
+- Performance Tracking
+
+---
+
+### 🏆 Leaderboard
+
+- Highest WPM Rankings
+- Top XP Rankings
+- User Levels
+
+---
+
+### 🎖 Achievements
+
+Unlock achievements automatically:
+
+- First Test
+- Speed Beginner
+- Speed Master
+- Accuracy Expert
+- Consistent Typer
+- XP Collector
+
+---
+
+### 🎯 Challenges
+
+Daily Challenges
+
+- Complete Tests
+- Reach Target WPM
+- Reach Target Accuracy
+
+Weekly Challenges
+
+- Complete Multiple Tests
+- Earn XP
+- Improve Speed
+
+Challenge Progress updates automatically.
+
+---
+
+### 👤 Profile
+
+- Full Name
+- Bio
+- Country
+- Avatar
+- Public Profile
+- Edit Profile
+
+---
+
+### 🌐 Public Profile
+
+Every user has a public profile.
+
+Shows
+
+- Name
+- Level
+- XP
+- Best WPM
+- Accuracy
+- Total Tests
+- Achievements
+
+---
+
+### 🔐 Security
+
+- Password Hashing (Supabase)
+- Email Verification
+- Password Reset
+- Session Authentication
+- Protected Routes
+- Disabled Copy/Paste During Test
+
+---
+
+## 🛠 Tech Stack
+
+Backend
+
+- Flask
+- Python
+
+Frontend
+
+- HTML
+- CSS
 - JavaScript
+
+Database
+
+- Supabase PostgreSQL
+
+Authentication
+
+- Supabase Auth
+
+Charts
+
 - Chart.js
 
-### Backend
-- Python
-- Flask
+Deployment Ready
 
-### Database
-- Supabase
-- PostgreSQL
-
-### Deployment
 - Render
 - Railway
-- GitHub
+- Vercel (Frontend)
+- Supabase
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
-```text
-typing-speed-platform/
+```
+Typing-Speed-Tester/
+
 │
 ├── app.py
 ├── config.py
 ├── requirements.txt
 ├── .env
-│
-├── database/
-│   └── supabase.py
+├── .env.example
+├── .gitignore
 │
 ├── routes/
-│   ├── auth.py
-│   ├── dashboard.py
-│   ├── typing.py
-│   ├── history.py
-│   ├── analytics.py
-│   ├── achievements.py
-│   ├── leaderboard.py
-│   └── profile.py
-│
 ├── templates/
-│   ├── base.html
-│   ├── login.html
-│   ├── register.html
-│   ├── dashboard.html
-│   ├── typing_test.html
-│   ├── history.html
-│   ├── analytics.html
-│   ├── achievements.html
-│   ├── leaderboard.html
-│   └── profile.html
-│
 ├── static/
-│   ├── css/
-│   │   ├── style.css
-│   │   └── profile.css
-│   │
-│   └── js/
-│       └── typing.js
-│
+├── database/
 ├── utils/
-│   └── achievements.py
-│
-└── data/
-    ├── easy.py
-    ├── medium.py
-    └── hard.py
+├── data/
+└── README.md
 ```
 
 ---
 
-## Installation
+## ⚙ Installation
 
-### Clone Repository
-
-```bash
-git clone https://github.com/yourusername/typing-speed-platform.git
-cd typing-speed-platform
-```
-
-### Create Virtual Environment
+Clone repository
 
 ```bash
-python -m venv venv
+git clone https://github.com/yourusername/Typing-Speed-Tester.git
 ```
 
-### Activate Environment
-
-Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-Linux/Mac:
-
-```bash
-source venv/bin/activate
-```
-
-### Install Dependencies
+Install packages
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
+Create
 
-## Environment Variables
-
-Create a `.env` file:
-
-```env
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_key
-SECRET_KEY=your_secret_key
+```
+.env
 ```
 
----
+Add
 
-## Run Application
+```env
+SUPABASE_URL=your_url
+
+SUPABASE_KEY=your_key
+
+SECRET_KEY=your_secret
+```
+
+Run
 
 ```bash
 python app.py
 ```
 
-Open:
+Visit
 
-```text
+```
 http://127.0.0.1:5000
 ```
 
 ---
 
-## Future Improvements
+## 📸 Screens
 
+- Login
+- Register
+- Dashboard
+- Typing Test
+- Analytics
+- Achievements
+- Challenges
+- Leaderboard
+- Profile
+- Public Profile
+
+(Add screenshots after pushing to GitHub.)
+
+---
+
+## 🚀 Future Improvements
+
+- Multiplayer Mode
 - AI Typing Coach
-- PDF Certificates
-- CSV/Excel Export
-- Daily Challenges
-- Weekly Challenges
 
 ---
----
 
-## Technologies Used
-
-Python, Flask, Supabase, PostgreSQL, HTML5, CSS3, JavaScript, Chart.js
+## 👨‍💻 Author
+Abaid-ur-Rehman
